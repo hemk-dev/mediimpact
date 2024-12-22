@@ -4,7 +4,7 @@ export async function POST(request) {
   try {
     const { name, email, phone, country, state, city, message, phoneCode } = await request.json();
 
-    console.log("Parsed Request Body:", { name, email, phone, country, state, city, message, phoneCode });
+    // console.log("Parsed Request Body:", { name, email, phone, country, state, city, message, phoneCode });
 
     const locationDetails = [
       country,
@@ -24,7 +24,7 @@ export async function POST(request) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: email,
+      to: process.env.RECIPIENT_EMAIL,
       subject: `New Inquiry Received from ${country}`,
       html: `
       <!DOCTYPE html>

@@ -9,6 +9,8 @@ import {
   PhonecodeSelect,
 } from "react-country-state-city";
 import "react-country-state-city/dist/react-country-state-city.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Validation schema with Yup
 const validationSchema = Yup.object({
@@ -55,7 +57,7 @@ const ContactUsForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log("Form submitted values:", values); // Debugging
+    // console.log("Form submitted values:", values);
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
@@ -69,20 +71,21 @@ const ContactUsForm = () => {
         throw new Error("Something went wrong");
       }
 
-      alert("Message sent successfully");
+      toast.success("Message sent successfully!");
       resetForm();
       setCountryId(0);
       setStateId(0);
       setIsStateDisabled(true);
       setIsCityDisabled(true);
     } catch (error) {
-      alert("Error sending message");
+      toast.error("Error sending message");
       console.error(error);
     }
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
+     {/* <ToastContainer /> */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
           {/* Contact Information */}

@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { CountrySelect, PhonecodeSelect } from "react-country-state-city";
 import "react-country-state-city/dist/react-country-state-city.css";
+import { toast } from "react-toastify";
 
 // Validation schema
 const validationSchema = Yup.object({
@@ -29,7 +30,7 @@ const CustomProductForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log("Form Submitted:", values); // Debugging
+    // console.log("Form Submitted:", values); // Debugging
     const response = await fetch("/api/send-email", {
       method: "POST",
       headers: {
@@ -41,8 +42,8 @@ const CustomProductForm = () => {
     if (!response.ok) {
       throw new Error("Something went wrong");
     }
+    toast.success("Message sent successfully!");
 
-    alert("Message sent successfully");
     resetForm();
   };
 
