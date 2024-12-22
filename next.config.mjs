@@ -1,11 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  images: {
-    domains: ["mediimpact.vercel.app"],
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
