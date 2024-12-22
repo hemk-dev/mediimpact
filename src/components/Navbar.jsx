@@ -62,7 +62,7 @@ const Navbar = () => {
           >
             <div>
               <Image
-                src="/images/logo.png"
+                src="/Images/logo.png"
                 alt="Logo"
                 width={210}
                 height={40}
