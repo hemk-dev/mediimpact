@@ -60,7 +60,7 @@ const DifferenceSection = () => {
         <div className="relative">
           <Image
             className="map-effect rounded-md md:w-[396px] md:h-[264px] w-[392px] h-[244px]"
-            src="/images/heart.jpg"
+            src="heart.jpg"
             alt="Image"
             width={500}
             height={324}

@@ -62,7 +62,7 @@ const HeroSection = () => {
     <div className="relative">
       <video
         ref={videoRef}
-        src="/images/capsule.mp4"
+        src="./images/capsule.mp4"
         autoPlay
         muted
         playsInline
