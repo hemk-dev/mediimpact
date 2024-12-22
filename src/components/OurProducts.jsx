@@ -48,7 +48,7 @@ const OurProducts = () => {
           {[
             {
               title: "Pharmaceutical Formulation",
-              imageSrc: "./formulation.jpg",
+              imageSrc: "/images/formulation.jpg",
               altText: "Pharmaceutical Formulation Image",
             },
             {
