@@ -35,7 +35,6 @@ const Home = () => {
         <div
           ref={loaderRef}
           className="fixed inset-0 flex items-center justify-center bg-cover bg-center backdrop-blur-sm z-20"
-          style={{ backgroundImage: "url('/images/loader.jpg')" }}
         >
           <video
             src="./images/loader.mp4"
