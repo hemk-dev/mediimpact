@@ -73,7 +73,7 @@ const OurProcess = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#08A576] pb-16 pt-4">
+    <section ref={sectionRef} className="relative bg-[#50a9b4] pb-16 pt-4">
       <div className="flex justify-center items-center my-4">
         <div className="text-white text-center" ref={headerRef}>
           <div className="text-2xl m-1 p-2 tracking-wide justify-center items-center flex gap-2">

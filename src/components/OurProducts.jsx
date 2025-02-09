@@ -36,7 +36,7 @@ const OurProducts = () => {
   }, []);
 
   return (
-    <div className="products-section bg-[#08A576] py-12">
+    <div className="products-section bg-[#50a9b4] py-12">
       <div className="container mx-auto text-center">
         <h2
           style={timesNewRoman("700")}
@@ -68,11 +68,6 @@ const OurProducts = () => {
             },
             {
               title: "Api and Intermediate",
-              imageSrc: "/images/cosmetics.jpg",
-              altText: "Cosmetics and Skin Care Image",
-            },
-            {
-              title: "Multivitamins",
               imageSrc: "/images/multivitamin.jpg",
               altText: "Cosmetics and Skin Care Image",
             },
@@ -105,7 +100,7 @@ const OurProducts = () => {
           whileTap={{ scale: 0.95 }}
         >
           <Link href="/products">
-            <button className="px-6 py-3 bg-white text-lg font-medium rounded-md text-[#08A576] hover:text-white hover:bg-[#1d4e3f] transition duration-300">
+            <button className="px-6 py-3 bg-white text-lg font-medium rounded-md text-[#50a9b4] hover:text-white hover:bg-[#32727a] transition duration-300">
               Explore more
             </button>
           </Link>

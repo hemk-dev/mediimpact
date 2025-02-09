@@ -150,7 +150,7 @@ const ContactUsForm = () => {
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                   />
                   <ErrorMessage
                     name="name"
@@ -172,7 +172,7 @@ const ContactUsForm = () => {
                     id="email"
                     name="email"
                     placeholder="name@domain.com"
-                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                   />
                   <ErrorMessage
                     name="email"
@@ -193,14 +193,14 @@ const ContactUsForm = () => {
                     <PhonecodeSelect
                       countryid={countryId}
                       onChange={(e) => handlePhoneCodeChange(e, setFieldValue)}
-                      className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                      className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                     />
                     <Field
                       type="text"
                       id="phone"
                       name="phone"
                       placeholder="Your phone number"
-                      className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                      className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                     />
                   </div>
                   {errors.phone && touched.phone && (
@@ -218,7 +218,7 @@ const ContactUsForm = () => {
                   </label>
                   <CountrySelect
                     onChange={(e) => handleCountryChange(e, setFieldValue)}
-                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                   />
                   <ErrorMessage
                     name="country"
@@ -239,7 +239,7 @@ const ContactUsForm = () => {
                     countryid={countryId}
                     onChange={(e) => handleStateChange(e, setFieldValue)}
                     placeHolder="Select State"
-                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                     disabled={isStateDisabled}
                   />
                 </div>
@@ -257,7 +257,7 @@ const ContactUsForm = () => {
                     stateid={stateId}
                     onChange={(e) => handleCityChange(e, setFieldValue)}
                     placeHolder="Select City"
-                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                     disabled={isCityDisabled}
                   />
                 </div>
@@ -276,7 +276,7 @@ const ContactUsForm = () => {
                     name="message"
                     rows="4"
                     placeholder="Message..."
-                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                    className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
                   />
                 </div>
 
@@ -284,7 +284,7 @@ const ContactUsForm = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-[#08A576] text-white py-2 px-4 rounded-md hover:bg-[#3ebc96] focus:outline-none focus:ring-2 focus:ring-[#08A576]"
+                    className="w-full bg-[#50a9b4] text-white py-2 px-4 rounded-md hover:bg-[#3ebc96] focus:outline-none focus:ring-2 focus:ring-[#50a9b4]"
                   >
                     Submit
                   </button>

@@ -9,12 +9,12 @@ export default function RootLayout({ children }) {
     <html lang="en" className={lato.className}>
       <head>
         {/* Basic SEO */}
-        <title>Medi Impact - Dose of Hope</title>
+        <title>SYNVIA - Dose of Hope</title>
         <meta
           name="description"
-          content="Medi Impact provides high-quality pharmaceutical exports with WHO GMP certification. Your trusted partner for global healthcare solutions, offering safe and reliable manufacturing medicines. Together, we provide a 'Dose of Hope' worldwide."
+          content="SYNVIA provides high-quality pharmaceutical exports with WHO GMP certification. Your trusted partner for global healthcare solutions, offering safe and reliable manufacturing medicines. Together, we provide a 'Dose of Hope' worldwide."
         />
-        <meta name="author" content="Medi Impact" />
+        <meta name="author" content="SYNVIA" />
         <meta
           name="keywords"
           content="Pharmacy, Pharmaceutical, Health, Medicine, Pharmaceutical manufacturing, Global Health"
@@ -24,21 +24,21 @@ export default function RootLayout({ children }) {
         <meta charSet="UTF-8" />
 
         {/* Open Graph for Social Media */}
-        <meta property="og:title" content="Medi Impact - Dose of Hope" />
+        <meta property="og:title" content="SYNVIA - Dose of Hope" />
         <meta
           property="og:description"
-          content="Medi Impact provides high-quality pharmaceutical exports with WHO GMP certification. Your trusted partner for global healthcare solutions, offering safe and reliable manufacturing medicines."
+          content="SYNVIA provides high-quality pharmaceutical exports with WHO GMP certification. Your trusted partner for global healthcare solutions, offering safe and reliable manufacturing medicines."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yourwebsite.com" />
-        <meta property="og:site_name" content="Medi Impact" />
+        <meta property="og:site_name" content="SYNVIA" />
 
         {/* Twitter Card for Social Sharing */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Medi Impact - Dose of Hope" />
+        <meta name="twitter:title" content="SYNVIA - Dose of Hope" />
         <meta
           name="twitter:description"
-          content="Medi Impact provides high-quality pharmaceutical exports with WHO GMP certification."
+          content="SYNVIA provides high-quality pharmaceutical exports with WHO GMP certification."
         />
         <meta name="twitter:site" content="@YourTwitterHandle" />
 

@@ -92,7 +92,7 @@ const DifferenceSection = () => {
             Making a Difference in Global Healthcare.
           </h2>
           <p className="text-[#27312bd7] tracking-wider leading-loose text-justify mt-4 text-lg">
-            At <span className="font-bold text-[#010302d7]">MEDI IMPACT</span>,
+            At <span className="font-bold text-[#010302d7]">SYNVIA</span>,
             our mission is to change the world by improving lives, supporting
             healthier communities, and creating a better future for all through
             continuous care and innovation.

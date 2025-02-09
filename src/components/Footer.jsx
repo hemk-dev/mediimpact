@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <footer className="h-full bg-[#08A576] py-8">
+    <footer className="h-full bg-[#0c3035] py-8">
       <div className="grid grid-cols-12 gap-8 mx-6 lg:mx-16">
         {/* Logo and "Dose of Hope" */}
         <div className="col-span-12 lg:col-span-2 flex lg:flex-col justify-around lg:justify-start items-center">
@@ -18,20 +18,15 @@ const Footer = () => {
             transition={{ ease: "easeInOut", duration: 0.75 }}
             className="flex flex-col items-center  justify-center"
           >
-            <div>
+            <div className="flex justify-center items-center">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
-                width={110}
-                height={40}
-                sizes="(max-width: 640px) 120px, 
-                      (max-width: 768px) 150px, 
-                      (max-width: 1024px) 210px, 
-                      220px"
-                layout="responsive"
+                width={210}
+                height={60}
+                className="w-auto h-12 sm:h-16 md:h-20 lg:h-24"
               />
             </div>
-          
           </motion.div>
           <div className="flex gap-3 text-white my-4 justify-center lg:justify-start items-center text-center">
             <FaFacebook className="text-xl" />

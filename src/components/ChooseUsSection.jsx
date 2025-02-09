@@ -126,7 +126,7 @@ const ChooseUsSection = () => {
         {/* Header */}
         <div
           ref={headerRef}
-          className="flex gap-2 text-[#024527] font-bold text-3xl"
+          className="flex gap-2 text-[#1a4147] font-bold text-3xl"
         >
           <BsDashLg className="text-2xl" />
           <h2 style={timesNewRoman("700")}>Why Choose Us</h2>
@@ -135,7 +135,7 @@ const ChooseUsSection = () => {
         {/* Subheading */}
         <p
           ref={subheadingRef}
-          className="text-[#06643A] text-xl px-6 text-center mb-8 leading-relaxed"
+          className="text-[#265c63] text-xl px-6 text-center mb-8 leading-relaxed"
         >
           We are committed to making a difference in global healthcare by
           providing high-quality pharmaceutical solutions.
@@ -149,7 +149,7 @@ const ChooseUsSection = () => {
               ref={(el) => (cardsRef.current[index] = el)} // Store references for each card
               className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center transform transition-all hover:scale-105"
             >
-              <div className="mb-6 p-4 rounded-full bg-[#08A576] flex justify-center items-center">
+              <div className="mb-6 p-4 rounded-full bg-[#50a9b4] flex justify-center items-center">
                 {card.icon}
               </div>
               <div>

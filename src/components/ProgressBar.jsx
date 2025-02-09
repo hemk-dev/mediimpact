@@ -45,7 +45,7 @@ const ProgressBar = ({ sectionRef }) => {
   }, [sectionRef]);
 
   return (
-    <div className="relative w-2 bg-[#3FBE97] h-full">
+    <div className="relative w-2 bg-[#77c9d4] h-full">
       <div
         ref={progressRef}
         className="absolute top-0 left-0 w-full bg-[#E5FFF3] h-0"
@@ -55,10 +55,10 @@ const ProgressBar = ({ sectionRef }) => {
         <div
           key={index}
           ref={(el) => (circleRefs.current[index] = el)}
-          className="flex justify-center items-center absolute w-10 h-10 md:w-12 md:h-12 bg-[#3FBE97] rounded-full transform -translate-x-1/2 transition-all duration-300 text-white"
+          className="flex justify-center items-center absolute w-10 h-10 md:w-12 md:h-12 bg-[#77c9d4] rounded-full transform -translate-x-1/2 transition-all duration-300 text-white"
           style={{ top: `${index * 25}%`, left: "50%" }}
         >
-          <Icon className="lg:w-6 lg:h-6 h-4 w-4 text-[#3FBE97]" /> {/* Render the icon dynamically */}
+          <Icon className="lg:w-6 lg:h-6 h-4 w-4 text-[#50a9b4]" /> {/* Render the icon dynamically */}
         </div>
       ))}
     </div>

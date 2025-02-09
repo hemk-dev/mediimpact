@@ -116,7 +116,7 @@ const Navbar = () => {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="focus:outline-none tracking-wide text-white bg-[#08A576] hover:bg-[#079268] font-normal rounded-full text-sm px-5 py-2.5"
+                  className="focus:outline-none tracking-wide text-white bg-[#50a9b4] hover:bg-[#3d8189] font-normal rounded-full text-sm px-5 py-2.5"
                   initial={{ x: 100 }}
                   animate={{ x: 0 }}
                   transition={{
@@ -142,7 +142,7 @@ const Navbar = () => {
             variants={navMenuVariant}
             initial="hidden"
             animate="visible"
-            className="sm:hidden h-screen px-4 py-5 flex bg-[#08A576] text-white"
+            className="sm:hidden h-screen px-4 py-5 flex bg-[#50a9b4] text-white"
           >
             <ul className="flex flex-col gap-4 text-4xl">
               <motion.li

@@ -19,7 +19,7 @@ const ProductsList = ({ products, productType }) => {
           >
             <div
               className={`flex justify-between items-center p-2 cursor-pointer ${
-                openIndex === index ? "bg-[#bbe7da] text-green-700" : "bg-gray-100 text-gray-700"
+                openIndex === index ? "bg-[#50a8b460] text-teal-700" : "bg-gray-100 text-gray-700"
               }`}
               onClick={() => toggleAccordion(index)}
             >

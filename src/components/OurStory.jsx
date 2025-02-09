@@ -10,7 +10,7 @@ const OurStory = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2">
             <p className="text-gray-800 text-lg leading-relaxed mb-4">
-              At <span className="font-bold">Medi Impact</span>, we believe in
+              At <span className="font-bold">SYNVIA</span>, we believe in
               bringing hope through high-quality pharmaceutical products.
               Founded with the mission to improve global health, our company has
               grown to be a trusted name in the pharmaceutical export industry.

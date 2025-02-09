@@ -80,7 +80,7 @@ const CustomProductForm = () => {
                   id="name"
                   name="name"
                   placeholder="Your name"
-                  className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#08A576] focus:outline-none"
+                  className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#50a9b4] focus:outline-none"
                 />
                 <ErrorMessage
                   name="name"
@@ -102,7 +102,7 @@ const CustomProductForm = () => {
                     <PhonecodeSelect
                       countryid={countryId}
                       onChange={(e) => handlePhoneCodeChange(e, setFieldValue)}
-                      className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#08A576] focus:outline-none"
+                      className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#50a9b4] focus:outline-none"
                     />
                   </div>
                   <div className="col-span-4">
@@ -111,7 +111,7 @@ const CustomProductForm = () => {
                       id="phone"
                       name="phone"
                       placeholder="Your phone"
-                      className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#08A576] focus:outline-none"
+                      className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#50a9b4] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -132,7 +132,7 @@ const CustomProductForm = () => {
                 </label>
                 <CountrySelect
                   onChange={(e) => handleCountryChange(e, setFieldValue)}
-                  className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#08A576] focus:outline-none"
+                  className="w-full border border-gray-300 rounded-md p-[0.675rem] focus:ring-[#50a9b4] focus:outline-none"
                 />
                 <ErrorMessage
                   name="country"
@@ -156,7 +156,7 @@ const CustomProductForm = () => {
                 name="productDescription"
                 rows="4"
                 placeholder="Enter customized product details"
-                className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#08A576] focus:outline-none"
+                className="w-full border border-gray-300 rounded-md p-2 focus:ring-[#50a9b4] focus:outline-none"
               />
               <ErrorMessage
                 name="productDescription"
@@ -168,7 +168,7 @@ const CustomProductForm = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#08A576] text-white py-2 px-4 rounded-md hover:bg-[#067A5A] transition focus:outline-none focus:ring-2 focus:ring-[#08A576]"
+              className="w-full bg-[#50a9b4] text-white py-2 px-4 rounded-md hover:bg-[#307983] transition focus:outline-none focus:ring-2 focus:ring-[#50a9b4]"
             >
               Submit
             </button>

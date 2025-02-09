@@ -121,48 +121,52 @@ const ProductTypeAccordion = () => {
           "Diclofenac, Oleum Lini, Methyl Salicylate, Menthol Gel (30gm)",
       },
     ],
-    Customized: [], 
+    Customized: [],
   };
 
   return (
-    <div className="m-8">
-      <h1 className="text-4xl py-4 font-bold mb-6 text-center">Products</h1>
-      <div className="grid grid-cols-1 gap-4">
-        {Object.keys(productData).map((type) => (
-          <div
-            key={type}
-            className="border bg-white rounded shadow overflow-hidden"
-          >
-            {/* Accordion Header */}
+
+      <div className="m-8">
+        <h1 className="text-4xl py-4 font-bold mb-6 text-center text-white">Products</h1>
+        <div className="grid grid-cols-1 gap-4">
+          {Object.keys(productData).map((type) => (
             <div
-              className={`flex justify-between items-center p-4 cursor-pointer transition-all duration-300 hover:bg-[#08A576] ${
-                openType === type
-                  ? "bg-[#08A576] text-white text-xl"
-                  : "bg-gray-100 text-gray-700 text-xl"
-              }`}
-              onClick={() => toggleTypeAccordion(type)}
+              key={type}
+              className="border bg-white rounded shadow overflow-hidden"
             >
-              <span className="font-semibold">{type}</span>
-              <span className="text-lg">{openType === type ? "-" : "+"}</span>
+              {/* Accordion Header */}
+              <div
+                className={`flex justify-between items-center p-4 cursor-pointer transition-all duration-300 hover:bg-[#50a9b4] ${
+                  openType === type
+                    ? "bg-[#50a9b4] text-white text-xl"
+                    : "bg-gray-100 text-gray-700 text-xl"
+                }`}
+                onClick={() => toggleTypeAccordion(type)}
+              >
+                <span className="font-semibold">{type}</span>
+                <span className="text-lg">{openType === type ? "-" : "+"}</span>
+              </div>
+              {/* Accordion Content */}
+              <div
+                ref={(el) => (contentRefs.current[type] = el)}
+                className="p-4 overflow-hidden"
+                style={{
+                  height: openType === type ? "auto" : 0,
+                  opacity: openType === type ? 1 : 0,
+                }}
+              >
+                {type === "Customized" ? (
+                  <CustomProductForm />
+                ) : (
+                  <ProductsList
+                    products={productData[type]}
+                    productType={type}
+                  />
+                )}
+              </div>
             </div>
-            {/* Accordion Content */}
-            <div
-              ref={(el) => (contentRefs.current[type] = el)}
-              className="p-4 overflow-hidden"
-              style={{
-                height: openType === type ? "auto" : 0,
-                opacity: openType === type ? 1 : 0,
-              }}
-            >
-              {type === "Customized" ? (
-                <CustomProductForm />
-              ) : (
-                <ProductsList products={productData[type]} productType={type} />
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
     </div>
   );
 };

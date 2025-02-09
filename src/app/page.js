@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
 import CertificationsSection from "@/components/CertificationsSection";
 import ChooseUsSection from "@/components/ChooseUsSection";
 import DifferenceSection from "@/components/DifferenceSection";
@@ -16,8 +17,14 @@ const Home = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); 
+      gsap.to(loaderRef.current, {
+        opacity: 0,
+        y: -100,
+        duration: 1,
+        ease: "power2.out",
+        onComplete: () => setLoading(false),
+      });
+    }, 3800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -30,13 +37,14 @@ const Home = () => {
           className="fixed inset-0 flex items-center justify-center bg-cover bg-center backdrop-blur-sm z-20"
           style={{ backgroundImage: "url('/images/loader.jpg')" }}
         >
-          <Image
-            src="/images/logo.png"
-            alt="Medi Impact Logo"
-            width={400}
-            height={400}
-            className="animate-pulse"
-          />
+          <video
+            src="./images/loader.mp4"
+            autoPlay
+            muted
+            playsInline
+            className="w-full h-auto object-cover"
+            style={{ opacity: 1 }}
+          ></video>
         </div>
       )}
       {!loading && (

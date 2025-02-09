@@ -3,10 +3,15 @@ import ProductTypeAccordion from "@/components/ProductTypeAccordian";
 import React from "react";
 
 const page = () => {
-  return (  
+  return (
     <>
-      <ProductsHero />
-      <ProductTypeAccordion />
+      <div
+        className="bg-cover bg-center min-h-screen py-8"
+        style={{ backgroundImage: "url('/images/loader.jpg')" }}
+      >
+        <ProductsHero />
+        <ProductTypeAccordion />
+      </div>
     </>
   );
 };
