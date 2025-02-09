@@ -13,32 +13,39 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   useEffect(() => {
-    // Animation for each service card on scroll
-    gsap.from(".service-card", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power2.out",
-      stagger: 0.3, // Add stagger to delay the animations slightly
-      scrollTrigger: {
-        trigger: ".service-card",
-        start: "top 80%",
-        end: "bottom top",
-      },
-    });
-
-    // Hover effect to scale the cards slightly
-    const cards = document.querySelectorAll(".service-card");
-
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, { scale: 1.05, duration: 0.3, ease: "power1.out" });
+    const initAnimation = setTimeout(() => {
+      ScrollTrigger.refresh();
+      // Animation for each service card on scroll
+      gsap.from(".service-card", {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.3, // Add stagger to delay the animations slightly
+        scrollTrigger: {
+          trigger: ".service-card",
+          start: "top 80%",
+          end: "bottom top",
+        },
       });
 
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, { scale: 1, duration: 0.3, ease: "power1.out" });
+      // Hover effect to scale the cards slightly
+      const cards = document.querySelectorAll(".service-card");
+
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, { scale: 1.05, duration: 0.3, ease: "power1.out" });
+        });
+
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card, { scale: 1, duration: 0.3, ease: "power1.out" });
+        });
       });
-    });
+    }, 100);
+    return () => {
+      clearTimeout(initAnimation);
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, []);
 
   return (

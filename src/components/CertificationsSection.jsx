@@ -9,31 +9,38 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CertificationsSection = () => {
   useEffect(() => {
-    // Animate the text
-    gsap.from(".certification-text", {
-      x: 200,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".certification-text",
-        start: "top 80%",
-        end: "bottom top",
-      },
-    });
+    const initAnimation = setTimeout(() => {
+      ScrollTrigger.refresh();
+      // Animate the text
+      gsap.from(".certification-text", {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".certification-text",
+          start: "top 80%",
+          end: "bottom top",
+        },
+      });
 
-    // Animate the image
-    gsap.from(".certification-image", {
-      x: -200,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".certification-image",
-        start: "top 80%",
-        end: "bottom top",
-      },
-    });
+      // Animate the image
+      gsap.from(".certification-image", {
+        x: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".certification-image",
+          start: "top 80%",
+          end: "bottom top",
+        },
+      });
+    }, 100);
+    return () => {
+      clearTimeout(initAnimation);
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, []);
 
   return (

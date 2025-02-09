@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BsDashLg } from "react-icons/bs";
 import ProcessSection from "./ProcessSection";
 import ProgressBar from "./ProgressBar";
+import { timesNewRoman } from "@/utility/fonts-utility";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,51 +16,60 @@ const OurProcess = () => {
   const progressRef = useRef(null);
 
   useEffect(() => {
-    // Scroll-triggered animation for header
-    gsap.from(headerRef.current, {
-      y: 50,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: headerRef.current,
-        start: "top 80%",
-        end: "bottom 60%",
-        markers: false,
-      },
-    });
+    const initAnimation = setTimeout(() => {
+      ScrollTrigger.refresh();
 
-    // Scroll-triggered animation for progress bar
-    gsap.from(progressRef.current, {
-      y: 50,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: progressRef.current,
-        start: "top 80%",
-        end: "bottom 60%",
-        markers: false,
-      },
-    });
-
-    // Scroll-triggered animation for the process section
-    gsap.fromTo(
-      processRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
+      // Scroll-triggered animation for header
+      gsap.from(headerRef.current, {
+        y: 50,
+        opacity: 0,
         duration: 1.5,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: processRef.current,
+          trigger: headerRef.current,
           start: "top 80%",
           end: "bottom 60%",
           markers: false,
         },
-      }
-    );
+      });
+
+      // Scroll-triggered animation for progress bar
+      gsap.from(progressRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: progressRef.current,
+          start: "top 80%",
+          end: "bottom 60%",
+          markers: false,
+        },
+      });
+
+      // Scroll-triggered animation for the process section
+      gsap.fromTo(
+        processRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: processRef.current,
+            start: "top 80%",
+            end: "bottom 60%",
+            markers: false,
+          },
+        }
+      );
+    }, 100);
+
+    return () => {
+      clearTimeout(initAnimation);
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, []);
 
   return (
@@ -68,7 +78,9 @@ const OurProcess = () => {
         <div className="text-white text-center" ref={headerRef}>
           <div className="text-2xl m-1 p-2 tracking-wide justify-center items-center flex gap-2">
             <BsDashLg className="text-2xl" />
-            <h2 className="text-2xl">Our Process</h2>
+            <h2 style={timesNewRoman("700")} className="text-3xl">
+              Our Process
+            </h2>
             <BsDashLg className="text-2xl" />
           </div>
           <p className="text-4xl p-2 m-1 font-bold tracking-wide">

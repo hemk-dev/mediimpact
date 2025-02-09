@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.8",
+    "@gsap/react": "^2.1.2",
     "@next/font": "^14.2.15",
     "formik": "^2.4.6",
     "framer-motion": "^11.14.1",

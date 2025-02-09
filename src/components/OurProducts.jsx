@@ -4,40 +4,45 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { timesNewRoman } from "@/utility/fonts-utility";
 
 const OurProducts = () => {
   useEffect(() => {
-    // Animate the entire section
-    gsap.from(".products-section", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-    });
+    const initAnimation = setTimeout(() => {
+      gsap.from(".products-section", {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+      });
 
-    // Animate individual product cards
-    gsap.from(".product-card", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      stagger: 0.2,
-      delay: 1, // Wait for section animation to complete
-    });
+      gsap.from(".product-card", {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        delay: 1,
+      });
 
-    // Animate product titles
-    gsap.from(".product-title", {
-      opacity: 0,
-      x: -50,
-      duration: 1,
-      delay: 1.5,
-      stagger: 0.3,
-    });
+      gsap.from(".product-title", {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+        delay: 1.5,
+        stagger: 0.3,
+      });
+    }, 100);
+
+    return () => clearTimeout(initAnimation);
   }, []);
 
   return (
     <div className="products-section bg-[#08A576] py-12">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-white mb-4">
-          Our <span className="text-[#02451E] ">Products</span>
+        <h2
+          style={timesNewRoman("700")}
+          className="text-4xl font-bold text-white mb-4"
+        >
+          Our Products
         </h2>
         <p className="text-white text-lg mb-8">
           MEDIIMPACT offers a diverse range of products, thoughtfully
@@ -59,6 +64,16 @@ const OurProducts = () => {
             {
               title: "Cosmetics and Skin Care",
               imageSrc: "/images/cosmetics.jpg",
+              altText: "Cosmetics and Skin Care Image",
+            },
+            {
+              title: "Api and Intermediate",
+              imageSrc: "/images/cosmetics.jpg",
+              altText: "Cosmetics and Skin Care Image",
+            },
+            {
+              title: "Multivitamins",
+              imageSrc: "/images/multivitamin.jpg",
               altText: "Cosmetics and Skin Care Image",
             },
           ].map((product, index) => (

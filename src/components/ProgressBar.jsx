@@ -2,15 +2,20 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaPills, FaIndustry, FaBox, FaCheckCircle } from "react-icons/fa"; // Import relevant icons
+import { GiMedicines } from "react-icons/gi"; // Additional relevant icons
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProgressBar = ({ sectionRef }) => {
   const progressRef = useRef(null);
-  const circleRefs = useRef([]); 
+  const circleRefs = useRef([]);
+
+  // Define icons corresponding to each process step
+  const icons = [FaPills, FaIndustry, FaBox, FaCheckCircle]; 
+
   useEffect(() => {
     if (sectionRef.current) {
-      // Animate the progress bar
       gsap.to(progressRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -28,8 +33,8 @@ const ProgressBar = ({ sectionRef }) => {
         gsap.to(circle, {
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: `${position}% center`, 
-            end: `${position + 25}% center`,
+            start: `${position}% center`,
+            end: `${position}% center`,
             scrub: true,
             markers: false,
           },
@@ -46,13 +51,15 @@ const ProgressBar = ({ sectionRef }) => {
         className="absolute top-0 left-0 w-full bg-[#E5FFF3] h-0"
       ></div>
 
-      {[...Array(5)].map((_, index) => (
+      {icons.map((Icon, index) => (
         <div
           key={index}
           ref={(el) => (circleRefs.current[index] = el)}
-          className="absolute w-10 h-10 md:w-12 md:h-12 bg-[#3FBE97] rounded-full transform -translate-x-1/2 transition-all duration-300"
+          className="flex justify-center items-center absolute w-10 h-10 md:w-12 md:h-12 bg-[#3FBE97] rounded-full transform -translate-x-1/2 transition-all duration-300 text-white"
           style={{ top: `${index * 25}%`, left: "50%" }}
-        ></div>
+        >
+          <Icon className="lg:w-6 lg:h-6 h-4 w-4 text-[#3FBE97]" /> {/* Render the icon dynamically */}
+        </div>
       ))}
     </div>
   );

@@ -31,11 +31,7 @@ const Footer = () => {
                 layout="responsive"
               />
             </div>
-            <div className="flex">
-              <p className="sm:text-[0.675rem] text-[0.5rem] tracking-[0.2em]">
-                DOSE OF HOPE
-              </p>
-            </div>
+          
           </motion.div>
           <div className="flex gap-3 text-white my-4 justify-center lg:justify-start items-center text-center">
             <FaFacebook className="text-xl" />

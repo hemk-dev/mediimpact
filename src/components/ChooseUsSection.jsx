@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { timesNewRoman } from "@/utility/fonts-utility";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,61 +66,62 @@ const ChooseUsSection = () => {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    // Heading fade-in and scale-up animation
-    gsap.from(headerRef.current, {
-      y: 50,
-      opacity: 0,
-      scale: 0.8,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: headerRef.current,
-        start: "top 80%",
-        end: "bottom 60%",
-        markers: false,
-      },
-    });
+    const initAnimation = setTimeout(() => {
+      ScrollTrigger.refresh();
+      // Heading Animation
+      gsap.from(headerRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 85%",
+          end: "bottom 80%",
+        },
+      });
 
-    // Subheading fade-in and scale-up animation
-    gsap.from(subheadingRef.current, {
-      y: 50,
-      opacity: 0,
-      scale: 0.8,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: subheadingRef.current,
-        start: "top 80%",
-        end: "bottom 60%",
-        markers: false,
-      },
-    });
+      // Subheading Animation
+      gsap.from(subheadingRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: subheadingRef.current,
+          start: "top 85%",
+          end: "bottom 80%",
+        },
+      });
 
-    // Card animations: Fade in and scale up from below when in view
-    cardsRef.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50, scale: 0.9 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          delay: index * 0.1, // Staggered delay
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            end: "bottom 60%",
-            markers: false,
-          },
-        }
-      );
-    });
+      // Cards Animation
+      cardsRef.current.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "bottom 85%",
+            },
+          }
+        );
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(initAnimation);
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 bg-[url('/images/choose.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="flex justify-center items-center flex-col gap-8">
         {/* Header */}
         <div
@@ -127,7 +129,7 @@ const ChooseUsSection = () => {
           className="flex gap-2 text-[#024527] font-bold text-3xl"
         >
           <BsDashLg className="text-2xl" />
-          <h2>Why Choose Us</h2>
+          <h2 style={timesNewRoman("700")}>Why Choose Us</h2>
           <BsDashLg className="text-2xl" />
         </div>
         {/* Subheading */}

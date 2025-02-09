@@ -1,4 +1,5 @@
 "use client";
+import { timesNewRoman } from "@/utility/fonts-utility";
 import Image from "next/image";
 import React from "react";
 
@@ -11,8 +12,8 @@ const Process = ({ title, text, img, reverse }) => {
     >
       {/* Text Section */}
       <div className="flex-1 flex flex-col gap-4 px-4 lg:px-8">
-        <h2 className="font-semibold text-xl lg:text-2xl">{title}</h2>
-        <p className="text-[#E5FFF3] font-light text-base lg:text-lg leading-relaxed ">
+        <h2 style={timesNewRoman('600')} className="font-semibold text-3xl tracking-wide">{title}</h2>
+        <p className="text-[#E5FFF3] font-light text-lg leading-relaxed ">
           {text}
         </p>
       </div>

@@ -60,23 +60,14 @@ const Navbar = () => {
             transition={{ ease: "easeInOut", duration: 0.75 }}
             className="flex flex-col items-center"
           >
-            <div>
+            <div className="flex justify-center items-center">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
                 width={210}
-                height={40}
-                sizes="(max-width: 640px) 120px, 
-                        (max-width: 768px) 150px, 
-                        (max-width: 1024px) 180px, 
-                        200px"
-                layout="responsive"
+                height={60}
+                className="w-auto h-12 sm:h-16 md:h-20 lg:h-24"
               />
-            </div>
-            <div className="flex">
-              <p className="sm:text-[0.675rem] text-[0.5rem] tracking-[0.2em]">
-                DOSE OF HOPE
-              </p>
             </div>
           </motion.div>
 
@@ -153,7 +144,7 @@ const Navbar = () => {
             animate="visible"
             className="sm:hidden h-screen px-4 py-5 flex bg-[#08A576] text-white"
           >
-            <ul className="flex flex-col gap-4 text-2xl">
+            <ul className="flex flex-col gap-4 text-4xl">
               <motion.li
                 variants={menuLinkVariants}
                 className="p-3 cursor-pointer"
