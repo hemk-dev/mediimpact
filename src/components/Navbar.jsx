@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { HamburgerMenu } from "./HamburgerMenu";
 
+import { usePathname } from "next/navigation";
 const navMenuVariant = {
   hidden: {
     opacity: 0,
@@ -37,16 +38,17 @@ const menuLinkVariants = {
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [menuOpen]);
+    // Close menu and reset body overflow when route changes
+    setMenuOpen(false);
+    document.body.style.overflow = "auto";
+  }, [pathname]);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
+    document.body.style.overflow = !menuOpen ? "hidden" : "auto";
   };
 
   return (
@@ -54,23 +56,24 @@ const Navbar = () => {
       <nav className="">
         <div className="flex flex-row justify-between px-4 py-4">
           {/* Logo */}
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeInOut", duration: 0.75 }}
-            className="flex flex-col items-center"
-          >
-            <div className="flex justify-center items-center">
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={210}
-                height={60}
-                className="w-auto h-12 sm:h-16 md:h-20 lg:h-24"
-              />
-            </div>
-          </motion.div>
-
+          <Link href="/">
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="flex flex-col items-center"
+            >
+              <div className="flex justify-center items-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  width={210}
+                  height={60}
+                  className="w-auto h-12 sm:h-16 md:h-20 lg:h-24"
+                />
+              </div>
+            </motion.div>
+          </Link>
           {/* Mobile Menu Toggle */}
           <motion.div
             initial={{ y: -20, opacity: 0 }}
@@ -142,32 +145,40 @@ const Navbar = () => {
             variants={navMenuVariant}
             initial="hidden"
             animate="visible"
-            className="sm:hidden h-screen px-4 py-5 flex bg-[#50a9b4] text-white"
+            className="sm:hidden h-screen px-4 py-5 flex bg-[#50a9b4] text-white overflow-y-auto"
           >
             <ul className="flex flex-col gap-4 text-4xl">
               <motion.li
                 variants={menuLinkVariants}
                 className="p-3 cursor-pointer"
               >
-                <Link href="/">Home</Link>
+                <Link href="/" onClick={() => setMenuOpen(false)}>
+                  Home
+                </Link>
               </motion.li>
               <motion.li
                 variants={menuLinkVariants}
                 className="p-3 cursor-pointer"
               >
-                <Link href="/products">Products</Link>
+                <Link href="/products" onClick={() => setMenuOpen(false)}>
+                  Products
+                </Link>
               </motion.li>
               <motion.li
                 variants={menuLinkVariants}
                 className="p-3 cursor-pointer"
               >
-                <Link href="/about">About</Link>
+                <Link href="/about" onClick={() => setMenuOpen(false)}>
+                  About
+                </Link>
               </motion.li>
               <motion.li
                 variants={menuLinkVariants}
                 className="p-3 cursor-pointer"
               >
-                <Link href="/contact">Contact</Link>
+                <Link href="/contact" onClick={() => setMenuOpen(false)}>
+                  Contact
+                </Link>
               </motion.li>
             </ul>
           </motion.div>

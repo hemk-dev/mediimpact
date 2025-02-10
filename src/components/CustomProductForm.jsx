@@ -30,13 +30,20 @@ const CustomProductForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    // console.log("Form Submitted:", values); // Debugging
+  console.log("🚀 ~ handleSubmit ~ values:", values)
+
     const response = await fetch("/api/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify({
+        name: values.name,
+        phone: values.phone,
+        country: values.country,
+        phoneCode: values.phoneCode,
+        productDescription: values.productDescription,
+      }),
     });
 
     if (!response.ok) {

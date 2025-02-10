@@ -1,10 +1,29 @@
+"use client";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
 import { lato } from "@/utility/fonts-utility";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({ children }) {
+  const [loading, setLoading] = useState(true);
+  const loaderRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      gsap.to(loaderRef.current, {
+        opacity: 0,
+        y: -100,
+        duration: 1,
+        ease: "power2.out",
+        onComplete: () => setLoading(false),
+      });
+    }, 3800);
+    console.log("lodaing",loading);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <html lang="en" className={lato.className}>
       <head>
@@ -50,21 +69,40 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
-        <Navbar />
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-        {children}
-        <Footer />
+        {loading && (
+          <div
+            ref={loaderRef}
+            className="fixed inset-0 flex items-center justify-center bg-cover bg-center backdrop-blur-sm z-20 bg-white"
+          >
+            <video
+              src="./images/loader.mp4"
+              autoPlay
+              muted
+              playsInline
+              className="w-full h-auto object-cover"
+              style={{ opacity: 1 }}
+            ></video>
+          </div>
+        )}
+        {!loading && (
+          <>
+            <Navbar />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+            {children}
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );

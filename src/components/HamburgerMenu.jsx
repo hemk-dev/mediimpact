@@ -22,8 +22,8 @@ const AnimatedHamburgerButton = ({ menuView }) => {
     >
       <motion.button
         initial={false}
-        animate={active ? "open" : "closed"}
-        onClick={() => setActive((pv) => !pv)}
+        animate={menuView ? "open" : "closed"}
+        // onClick={() => setActive((pv) => !pv)}
         className="relative h-11 w-14 rounded-full bg-white/0 transition-colors hover:bg-white/10"
       >
         <motion.span

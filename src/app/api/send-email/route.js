@@ -2,9 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(request) {
   try {
-    const { name, email, phone, country, state, city, message, phoneCode } = await request.json();
-
-    // console.log("Parsed Request Body:", { name, email, phone, country, state, city, message, phoneCode });
+    const { name, email, phone, country, state, city, message, phoneCode, productDescription } = await request.json();
 
     const locationDetails = [
       country,
@@ -21,6 +19,9 @@ export async function POST(request) {
         pass: process.env.EMAIL_PASS,
       },
     });
+
+    let emailField = email ? `<p><span>Email:</span> ${email}</p>` : "";
+    let messageField = productDescription ? `<p><span>Product Description:</span> ${productDescription}</p>` : `<p><span>Message:</span> ${message}</p>`;
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -84,10 +85,9 @@ export async function POST(request) {
           <div class="content">
             <p>New inquiry is received by <span>${name}</span> from <span>${locationDetails}</span>.</p>
             <hr>
-            <p><span>Email:</span> ${email}</p>
+            ${emailField}
             <p><span>Phone:</span> +${phoneCode} ${phone}</p>
-            <p><span>Message:</span></p>
-            <p>${message}</p>
+            ${messageField}
           </div>
         </div>
       </body>
