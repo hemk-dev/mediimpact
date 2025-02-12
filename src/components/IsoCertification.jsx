@@ -60,7 +60,7 @@ const IsoCertification = () => {
       <div>
         <div className="relative certification-image2">
           <Image
-            className="map-effect rounded-md md:w-[400x] md:h-[244px] w-[412px] h-[244px]"
+            className="map-effect rounded-md md:w-[440px] md:h-[244px] w-[454px] h-[224px]"
             src="/images/ISO.png"
             alt="map Image"
             width={500}
